@@ -59,6 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const availableNumbers = [2, 13, 23, 33, 38, 39, 42, 43, 44, 48, 49, 50, 51, 55, 57, 59, 61, 63, 64, 66, 67, 68, 70, 78, 79, 80, 81, 82, 83, 86, 92, 93, 94, 96]; 
     const gridContainer = document.getElementById('numbers-grid');
 
+    // --- Crisp Chat Button Logic ---
+    const crispButton = document.getElementById('crisp-chat-button');
+    if (crispButton) {
+        crispButton.addEventListener('click', () => {
+            if (typeof $crisp !== 'undefined') {
+                $crisp.push(["do", "chat:show"]);
+                $crisp.push(["do", "chat:open"]);
+            }
+        });
+    }
+
     // --- Custom Modal Logic ---
     const modal = document.getElementById('custom-modal');
     const modalTitle = document.getElementById('modal-title');

@@ -614,24 +614,25 @@ footer {
 }
 
 .num-available {
-    background-color: var(--c-yellow);
-    color: var(--c-blue);
+    background-color: var(--c-green);
+    color: var(--c-orange);
     border: 2px solid var(--c-orange);
     cursor: pointer;
 }
 
 .num-available:hover {
     background-color: var(--c-pink);
-    color: var(--c-yellow);
+     color: var(--c-orange);
     transform: scale(1.1);
     z-index: 2;
 }
 
 .num-taken {
-    background-color: var(--c-green);
+    background-color: var(--c-yellow);
     color: var(--c-blue);
     border: 2px solid var(--c-blue);
     text-decoration: line-through;
+text-decoration-thickness: 0.2em;
     cursor: not-allowed;
 }
 

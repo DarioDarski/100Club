@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Interactive Numbers Grid ---
     // UPDATE THIS ARRAY WITH THE NUMBERS THAT ARE CURRENTLY AVAILABLE!
-    const availableNumbers = [6, 15, 33, 38, 39, 43, 44, 45, 49, 50, 51, 55, 59, 61, 63, 64, 68, 69, 70, 74, 79, 80, 81, 83, 85, 86, 92, 93, 94]; 
+    const availableNumbers = [6, 15, 33, 38, 39, 43, 44, 45, 49, 50, 51, 55, 59, 61, 63, 68, 69, 70, 74, 79, 80, 81, 83, 85, 86, 92, 93, 94]; 
     const gridContainer = document.getElementById('numbers-grid');
 
     // --- Crisp Chat Button Logic ---

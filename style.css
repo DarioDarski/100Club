@@ -16,7 +16,7 @@
     --bg-dark: var(--c-blue-muted);
     
     --text-main: var(--c-blue);
-    --text-heading: var(--c-orange);
+    --text-heading: #8C6436;  /* Darker gold for text on light backgrounds (5:1 contrast) */
     --text-dark-section: #ffffff;
     --text-muted: var(--c-pink);
     
@@ -208,6 +208,7 @@ img {
     font-family: var(--ff-heading);
     font-size: 1.5rem;
     font-weight: 800;
+    white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -346,7 +347,7 @@ img {
    ========================================================================== */
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
 }
 
@@ -413,7 +414,7 @@ img {
     color: inherit;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
     .step:not(:last-child)::after {
         content: '';
         position: absolute;
@@ -529,7 +530,7 @@ img {
 }
 .stat-number {
     font-size: 3.5rem;
-    color: var(--c-orange);
+    color: var(--text-heading);
     margin-bottom: 0.5rem;
 }
 
@@ -621,6 +622,8 @@ footer {
 }
 
 .num-box {
+    padding: 0;
+    line-height: 1;
     aspect-ratio: 1;
     display: flex;
     align-items: center;
@@ -641,9 +644,20 @@ footer {
 
 .num-available:hover {
     background-color: var(--c-pink);
-     color: var(--c-orange);
+    color: #FFFFFF;
     transform: scale(1.1);
     z-index: 2;
+}
+
+.num-box:focus-visible {
+    outline: 3px solid var(--c-blue);
+    outline-offset: 2px;
+    z-index: 2;
+}
+
+.num-available:disabled,
+.num-taken:disabled {
+    cursor: not-allowed;
 }
 
 .num-taken {
@@ -697,7 +711,7 @@ text-decoration-thickness: 0.2em;
 }
 
 .modal-content h3 {
-    color: var(--c-orange);
+    color: var(--c-blue);
     font-size: 2rem;
     margin-bottom: 1rem;
 }
@@ -711,10 +725,8 @@ text-decoration-thickness: 0.2em;
 /* ==========================================================================
    Responsive Design
    ========================================================================== */
-@media (max-width: 768px) {
-    .numbers-grid {
-        grid-template-columns: repeat(5, 1fr);
-    }
+/* Mobile navigation applies up to 960px so the logo and links never collide */
+@media (max-width: 960px) {
     .nav-links {
         display: none;
         position: absolute;
@@ -736,8 +748,33 @@ text-decoration-thickness: 0.2em;
     .nav-mobile-toggle {
         display: flex;
     }
+}
+
+@media (max-width: 768px) {
+    .numbers-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
 
     .section {
         padding: var(--space-xl) 0;
+    }
+}
+
+/* Small phones: keep the navbar on one line and stack the 50% boxes */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1rem var(--space-md);
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .impact-stats {
+        flex-direction: column;
+    }
+
+    .stat-box {
+        min-width: 0;
     }
 }
